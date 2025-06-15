@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+    background-color: black;
+}
+h1 {
+    color: red;
+}
+#result, #score {
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    height: 100px;
+    width: 200px;
+    font-weight: 700;
+    font-size: 30px;
+}
+.game-over {
+    color: red;
+}
+#score{
+    color: white;
+    border: 5px solid white;
+    height: 100px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.result{
+    text-align: center;
+    margin-left: 40%;
+}
+#result{
+    color: white;
+}

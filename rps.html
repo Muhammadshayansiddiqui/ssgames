@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="rps.css">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <div class="result">
+        <p id="score">Player : 0 | Computer : 0</p>
+    </div>
+    <p id="result"></p>
+    <button onclick="play('rock')">Rock</button>
+    <button onclick="play('paper')">Paper</button>
+    <button onclick="play('scissors')">Scissors</button>
+    
+
+    <script>
+        let playerScore = 0;
+        let computerScore = 0;
+        const maxScore = 10;
+
+        function play(userChoice) {
+            if (playerScore >= maxScore || computerScore >= maxScore) {
+                document.getElementById('result').innerText = "Game over! Reload the page to play again.";
+                document.getElementById('result').classList.add('game-over');
+                return;
+            }
+
+            const choices = ['rock', 'paper', 'scissors'];
+            const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+            let result;
+            if (userChoice === computerChoice) {
+                result = "It's a tie!";
+            } else if (
+                (userChoice === 'rock' && computerChoice === 'scissors') ||
+                (userChoice === 'paper' && computerChoice === 'rock') ||
+                (userChoice === 'scissors' && computerChoice === 'paper')
+            ) {
+                result = "You win!";
+                playerScore++;
+            } else {
+                result = "Computer wins!";
+                computerScore++;
+            }
+
+            document.getElementById('result').innerText = `You chose: ${userChoice}\nComputer chose: ${computerChoice}\n\n${result}`;
+            document.getElementById('score').innerText = `Player: ${playerScore} | Computer: ${computerScore}`;
+
+            if (playerScore >= maxScore) {
+                document.getElementById('result').innerText += "\n\nCongratulations! You have reached 10 points first!";
+                document.getElementById('result').classList.add('game-over');
+            } else if (computerScore >= maxScore) {
+                document.getElementById('result').innerText += "\n\nGame over! The computer reached 10 points first.";
+                document.getElementById('result').classList.add('game-over');
+            }
+        }
+    </script>
+</body>
+
+</html>
